@@ -1,0 +1,128 @@
+{
+  "personalDetails":{
+    "pan":"CAAPK0000D",
+    "selectedTypeOfClient":"Individual",
+    "clientName":"Devansh",
+    "dob":"04-01-1990",
+    "emailId":"devansh.khanwalkar@smartowner.com",
+    "gender":"male",
+    "phone":"+917022903665",
+    "address":"ful address of client",
+    "street":false,
+    "city":"Bangalore",
+    "country":"India",
+    "state":"Karnataka",
+    "pinCode":"452001",
+    "dateOfIncorporation":false,
+    "nri":"No"
+  },
+  "purchaseDetails":[
+    {
+      "projectCode":"BLR-NOA-HIL",
+      "unitSize":["1200","1300","1400","1500"],
+      "unitsAvailable":"20",
+      "downPayment":["15","25","50","75","100"],
+      "premiumFeatures":{
+        "dropdown":["dd1","dd2","dd3","dd4"],
+        "facing":["east","west","north","south"],
+        "pricing":{
+          "combination1":"price1",
+          "combination2":"price2",
+          "combination3":"price3",
+          "combination4":"price4",
+          "combination5":"price5",
+          "combination6":"price6"
+        }
+      }
+    },
+    {
+      "projectCode":"BLR-NSC-SRJ",
+      "unitSize":["1200","1300","1400","1500"],
+      "unitsAvailable":"20",
+      "downPayment":["15","25","50","75","100"],
+      "premiumFeatures":{
+        "dropdown":["dd1","dd2","dd3","dd4"],
+        "facing":["east","west","north","south"],
+        "pricing":{
+          "combination1":"price1",
+          "combination2":"price2",
+          "combination3":"price3",
+          "combination4":"price4",
+          "combination5":"price5",
+          "combination6":"price6"
+        }
+      }
+    },
+    {
+      "projectCode":"BLR-NSC-AVS",
+      "unitSize":["1200","1300","1400","1500"],
+      "unitsAvailable":"20",
+      "downPayment":["15","25","50","75","100"],
+      "premiumFeatures":{
+        "dropdown":["dd1","dd2","dd3","dd4"],
+        "facing":["east","west","north","south"],
+        "pricing":{
+          "combination1":"price1",
+          "combination2":"price2",
+          "combination3":"price3",
+          "combination4":"price4",
+          "combination5":"price5",
+          "combination6":"price6"
+        }
+      }
+    }
+  ],
+  "bankDetails":{
+    "accountNumber":"7898765100009877",
+    "ifscCode":"PUNB00001",
+    "accountHolderName":"Devansh Khanwalkar",
+    "branchName":"whitefield, bangalore",
+    "bankName":"Punjab National Bank"
+  },
+  "nomineeDetails":{
+    "name":"Devansh",
+    "dob":"04-01-1990",
+    "emailId":"devansh.khanwalkar@smartowner.com",
+    "gender":"female",
+    "phone":"+917022903665",
+    "relationship":"father",
+    "address":"ful address of client",
+    "street":"street name/false(if not given)",
+    "city":"Bangalore",
+    "country":"India",
+    "state":"Karnataka",
+    "pinCode":"452001"
+  },
+  "guardianDetails":{
+    "name":"Devansh( object will be empty if nominee is not a minor)",
+    "dob":"04-01-1990",
+    "emailId":"devansh.khanwalkar@smartowner.com",
+    "gender":"female",
+    "phone":"+917022903665",
+    "relationship":"son",
+    "address":"ful address of client",
+    "street":"street name/false(if not given)",
+    "city":"Bangalore",
+    "country":"India",
+    "state":"Karnataka"
+    },
+  "documents":[
+	{
+		"name":"Passport copy",
+		"isSubmitted":true
+	},
+	{
+		"name":"PAN card copy",
+		"isSubmitted":true
+	},
+	{
+		"name":"Visa Copy",
+		"isSubmitted":false
+	},
+	{
+		"name":"OCI Copy",
+		"isSubmitted":false
+	}
+	
+  ]
+}

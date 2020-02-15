@@ -1,0 +1,491 @@
+/*======================================common classes nd animations=====================================================*/
+    
+    .table-cell
+    {
+        display: table-cell;
+        vertical-align: middle;
+    }
+    .marginTop30
+    {
+        margin-top: 20px;
+    }
+	.marginBottom30
+    {
+        margin-bottom: 20px;
+    }
+	.marginBottom20
+    {
+        margin-bottom: 30px;
+    }
+    .help-block
+    {
+        color:#eb4141;
+    }
+    .paddinglr0
+    {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .active
+    {
+        color:#fff;
+        background: #558b2f;
+        -webkit-box-shadow: 0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12),0 2px 4px -1px rgba(0,0,0,.2);
+        box-shadow: 0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12),0 2px 4px -1px rgba(0,0,0,.2);
+    }
+    .btn.btn-fab
+    {
+        transition: all 0.6s ease-in-out 0s;
+        
+    }
+    .btn.btn-fab:hover
+    {
+        box-shadow: none;
+        transform: rotate(360deg);
+    }
+    .dropdownjscheckbox .checkbox .checkbox-material .check,.dropdownjscheckbox label.checkbox-inline .checkbox-material .check
+    {
+        width:16px;
+        height: 16px;
+    }
+    .dropdownjscheckbox .checkbox .checkbox-material .check:before,.dropdownjscheckbox label.checkbox-inline .checkbox-material .check:before
+    {
+        margin-top: -6px;
+        margin-left: 3px;
+    }
+    .dropdownjscheckbox > ul > li.selected[value=other], .dropdownjscheckbox > ul > li[value=other]:active {
+    background-color: transparent;
+}
+/*======================================End common classes=====================================================*/
+/*======================================From Entry Question Page=====================================================*/
+body
+{
+    background-image: url(../img/pattern.jpg);
+    background-repeat: repeat;
+}
+section.header
+{
+    padding:15px;
+    background: #fff;
+    border-bottom: 1px solid #999;
+}
+section.header .pageHead
+{
+    color:#558B2F;
+    font-weight: bold;
+}
+div.form-entry-q
+{
+    display: table-cell;
+    vertical-align: middle;
+    height: 79vh;
+    width:100vw;
+}
+div.form-entry-q h3
+{
+    display: inline;
+}
+div.form-entry-q .btn-group-justified {
+    display: inline;
+    width: 100%;
+    table-layout: auto;
+    border-collapse: separate;
+    margin-left:20px;
+}
+div.form-entry-q .btn-group-justified .btn.switch-btn,.btn.btn-raised.save,.btn.btn-raised.submit
+{
+    padding:15px;
+    width:150px;
+}
+.progress-status
+{
+    padding:30px 10px;
+}
+.progress-status .col-md-3
+{
+    padding:0px;
+}
+.milestone
+{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    box-shadow: 0px 1px 2px #777;
+    border: 1px solid #999;
+    background: #fff;
+    padding: 2px;
+    position: absolute;
+    top: -8px;
+}
+.milestone .inner-milestone
+{
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #fff;
+    margin: auto;
+}
+.milestone .inner-milestone.mile1
+{
+	 background: #558B2F;
+}
+#purchaseDetailsContent .col-md-1,#purchaseDetailsContent .col-md-2,#purchaseDetailsContent .col-md-3
+{
+    padding:0px 20px;
+}
+#purchaseDetailsContent .unitCard
+{
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  margin-top:10px;
+}
+#purchaseDetailsContent .featureCard
+{
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  margin-top:30px;
+}
+#purchaseDetailsContent .unitCard div.form-group,#purchaseDetailsContent .featureCard div.form-group
+{
+    margin:0px 0px 28px 0px;
+}
+
+#purchaseDetailsContent .co-ownerCard
+{
+    position: relative;
+}
+.ucCardAddBtn
+{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background: #999;
+    color:#fff;
+    font-size: 12px;
+    cursor: pointer;
+    padding:3px 7px;
+    border-top-left-radius: 0px;
+    z-index: 1;
+}
+.featureCardLabel
+{
+    position: relative;
+    margin-left:-30px;
+    top: 0;
+    background: #999;
+    color:#fff;
+    font-size: 12px;
+    padding:5px 7px;
+    z-index: 1;
+}
+.ucCardRemoveBtn
+{
+    position: absolute;
+    right: 110px;
+    bottom: 0;
+    background: #999;
+    color:#fff;
+    font-size: 12px;
+    cursor: pointer;
+    padding:3px 7px;
+    border-top-left-radius: 0px;
+    z-index: 1;
+}
+.coAddBtn
+{
+    position: relative;
+    left: 30px;
+    bottom: 0;
+    color:#fff;
+    font-size: 12px;
+    cursor: pointer;
+    padding:3px;
+    border-top-left-radius: 3px;
+    z-index: 1;
+}
+.coRemoveBtn
+{
+    position: absolute;
+    right: 0px;
+    top:15px;
+    color:#eb4141;
+    cursor: pointer;
+}
+.ucCardAddBtn:hover,.ucCardRemoveBtn:hover
+{
+    text-decoration: none;
+    color:#fff;
+}
+/*======================================End From Entry Question Page=====================================================*/
+
+/*======================================Bootstrap overrides=====================================================*/
+    
+.container-fluid {
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.btn
+{
+    border-radius: 3px;
+    text-transform: none;
+    font-weight: normal;
+}
+.btn-group-raised .btn:not(.btn-link).active, .btn-group-raised .btn:not(.btn-link).active.btn-default, .btn-group-raised .btn:not(.btn-link):active, .btn-group-raised .btn:not(.btn-link):active.btn-default, .btn-group-raised .btn:not(.btn-link):focus, .btn-group-raised .btn:not(.btn-link):focus.btn-default, .btn-group-raised .btn:not(.btn-link):hover, .btn-group-raised .btn:not(.btn-link):hover.btn-default, .btn-group-raised .input-group-btn .btn:not(.btn-link).active, .btn-group-raised .input-group-btn .btn:not(.btn-link).active.btn-default, .btn-group-raised .input-group-btn .btn:not(.btn-link):active, .btn-group-raised .input-group-btn .btn:not(.btn-link):active.btn-default, .btn-group-raised .input-group-btn .btn:not(.btn-link):focus, .btn-group-raised .input-group-btn .btn:not(.btn-link):focus.btn-default, .btn-group-raised .input-group-btn .btn:not(.btn-link):hover, .btn-group-raised .input-group-btn .btn:not(.btn-link):hover.btn-default, .btn.btn-raised:not(.btn-link).active, .btn.btn-raised:not(.btn-link).active.btn-default, .btn.btn-raised:not(.btn-link):active, .btn.btn-raised:not(.btn-link):active.btn-default, .btn.btn-raised:not(.btn-link):focus, .btn.btn-raised:not(.btn-link):focus.btn-default, .btn.btn-raised:not(.btn-link):hover, .btn.btn-raised:not(.btn-link):hover.btn-default, .input-group-btn .btn.btn-raised:not(.btn-link).active, .input-group-btn .btn.btn-raised:not(.btn-link).active.btn-default, .input-group-btn .btn.btn-raised:not(.btn-link):active, .input-group-btn .btn.btn-raised:not(.btn-link):active.btn-default, .input-group-btn .btn.btn-raised:not(.btn-link):focus, .input-group-btn .btn.btn-raised:not(.btn-link):focus.btn-default, .input-group-btn .btn.btn-raised:not(.btn-link):hover, .input-group-btn .btn.btn-raised:not(.btn-link):hover.btn-default
+{
+    background-color: #558B2F;
+    color:#fff;
+}
+.btn-group-raised .btn, .btn-group-raised .btn.btn-default, .btn-group-raised .input-group-btn .btn, .btn-group-raised .input-group-btn .btn.btn-default, .btn.btn-fab, .btn.btn-fab.btn-default, .btn.btn-raised, .btn.btn-raised.btn-default, .input-group-btn .btn.btn-fab, .input-group-btn .btn.btn-fab.btn-default, .input-group-btn .btn.btn-raised, .input-group-btn .btn.btn-raised.btn-default
+{
+    background-color: #fff;
+    color:#999;   
+}
+.progress {
+    position: relative;
+    top: 24px;
+    height: 4px;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background: #fff;
+}
+.btn.btn-fab, .input-group-btn .btn.btn-fab {
+    border-radius: 50%;
+    font-size: 24px;
+    height: 36px;
+    margin: auto;
+    min-width: 36px;
+    width: 36px;
+    padding: 0;
+    overflow: hidden;
+    -webkit-box-shadow: 0 1px 1.5px 0 rgba(0,0,0,.12),0 1px 1px 0 rgba(0,0,0,.24);
+    box-shadow: 0 1px 1.5px 0 rgba(0,0,0,.12),0 1px 1px 0 rgba(0,0,0,.24);
+    position: relative;
+    line-height: normal;
+    color:#333;
+}
+.panel.panel-default>.panel-heading, .panel>.panel-heading {
+    background-color: #fafafa;
+    border-left: 5px solid #558B2F;
+    font-weight: bold;
+    border-radius:0px;
+}
+.panel.uploadPanel.panel-default>.panel-heading, .panel.uploadPanel>.panel-heading {
+border-left:none;
+color:#999;
+}
+.uploadPanel
+{
+    border-radius: 0px;
+    border:1px solid #ccc;
+}
+.indianResidentsPanel
+{
+    width:50%;
+}
+.panel-group .panel+.panel {
+    margin-top: 20px;
+}
+.panel-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 16px;
+    color: inherit;
+    font-weight: 500;
+    color: #999;
+}
+.form-horizontal .control-label {
+    padding-top: 7px;
+    margin-bottom: 0;
+    text-align: left;
+}
+.dropdownjs > ul {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    min-width: 100%;*/
+    width: 100%;
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+    z-index: 10000;
+}
+.form-control, .form-group .form-control
+{
+    background-position: left bottom,left calc(100% - 1px);
+}
+div.radio
+{
+    display: inline;
+    margin-right:0px;
+}
+.form-group {
+    padding: 7px;
+    margin: 28px 0 0 0;
+}
+.form-group .checkbox label, .form-group .radio label, .form-group label {
+    font-size: 16px;
+    line-height: 1;
+    color: #BDBDBD;
+    font-weight: 400;
+}
+.form-group .checkbox label.error, .form-group .radio label.error, .form-group label.error {
+    font-size: 12px;
+    line-height: 1.42857143;
+    color: #eb4141;
+    font-weight: 400;
+}
+.form-horizontal label {
+    text-align: left;
+}
+.checkbox .checkbox-material, label.checkbox-inline .checkbox-material {
+    vertical-align: middle;
+    position: relative;
+    top: 6px;
+    margin-right: 5px;
+    float: left;
+}
+.form-group .checkbox label, .form-group .radio label, .form-group label {
+    font-size: 16px;
+    line-height: 1;
+    color: #BDBDBD;
+    font-weight: 400;
+    display: inline;
+}
+.popover, .tooltip-inner
+{
+   color:#666;
+   background: #fff;
+   font-size: 12px;
+   border:1px solid #00acc1;
+   max-width:300px;     
+}
+.popover .popover-title
+{
+    display:none;
+}
+.popover .popover-content
+{
+    padding:8px;
+    line-height: 16px;
+}
+.popover.right>.arrow {
+    top: 50%;
+    left: -11px;
+    margin-top: -11px;
+    border-right-color: #999;
+    border-right-color: #00acc1;
+    border-left-width: 0px;
+    display: block
+    /* border-right: 2px solid #00acc1; */
+}
+.image-preview {
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    background-color: rgba(88,139,47,0.2);
+    color: #ecf0f1;
+    border: 2px solid #588b2f;
+    border-radius: 4px;
+}
+  label.file-label {
+    position: absolute;
+    z-index: 5;
+    opacity: 0.8;
+    cursor: pointer;
+    background-color: #fff;
+    color:#558b2f;
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    line-height: 50px;
+    text-transform: uppercase;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    text-align: center;
+  } 
+/*======================================End Bootstrap overrides=====================================================*/
+
+/*======================================UI slider overrides=====================================================*/
+.irs-slider.single
+{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    box-shadow: 0px 1px 2px #777;
+    border: 1px solid #999;
+    background: #FFF;
+    padding: 2px;
+    position: absolute;
+    top: 17px;
+    cursor: move;
+    border:2px solid #558B2F;
+}
+.irs-line {
+    height: 4px;
+    top: 25px;
+}
+.irs-bar {
+    height: 4px;
+    top: 25px;
+    background:#558B2F;
+}
+.irs-bar-edge {
+    top: 25px;
+    height: 4px;
+    width: 10px;
+    background:#558B2F;
+}
+.irs-from, .irs-to, .irs-single {
+    color: #fff;
+    font-size: 10px;
+    line-height: 1.333;
+    text-shadow: none;
+    padding: 1px 5px;
+    background: #558B2F;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    margin-top: 41px;
+    z-index: 1;
+}
+.irs-from:after, .irs-to:after, .irs-single:after {
+    position: absolute;
+    display: block;
+    content: "";
+    bottom: 15px;
+    left: 50%;
+    width: 0;
+    height: 0;
+    margin-left: -3px;
+    overflow: hidden;
+    border: 3px solid transparent;
+    border-bottom-color: #558B2F;
+}
+.irs-with-grid {
+    height: 50px;
+    margin-top: -10px;
+}
+/*======================================End UI slider overrides=====================================================*/
+
+
+/*======================================Datepicker overrides=====================================================*/
+.dtp div.dtp-date, .dtp div.dtp-time {
+    background: #558B2F;
+    text-align: center;
+    color: #fff;
+    padding: 10px;
+}
+
+/*======================================End Datepicker overrides=====================================================*/
+
+/*======================================Intl input overrides=====================================================*/
+
+.iti-flag {background-image: url("../img/flags.png");}
+.intl-tel-input {width: 100%;}
+
+/*======================================End Intl input overrides=====================================================*/

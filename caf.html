@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=yes, initial-scale=1, minimum-scale=1, width=device-width" />
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+
+    
+      <!-- Material Design fonts -->
+      <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+      <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+      <!-- Bootstrap -->
+      <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+
+      <!-- Bootstrap Material Design -->
+      <link rel="stylesheet" type="text/css" href="./css/bootstrap-material-design.min.css">
+      <link rel="stylesheet" type="text/css" href="./css/anypicker-all.css">
+      <link rel="stylesheet" type="text/css" href="./css/ripples.min.css">
+      <link rel="stylesheet" type="text/css" href="./css/snackbar.min.css" />
+      <link rel="stylesheet" type="text/css" href="./css/jquery.dropdown.css">
+      <link rel="stylesheet" type="text/css" href="./css/ion.rangeSlider.css">
+      <link rel="stylesheet" type="text/css" href="./css/ion.rangeSlider.skinFlat.css">
+      <link rel="stylesheet" type="text/css" href="./css/dropzone.min.css">
+      <link rel="stylesheet" type="text/css" href="./css/intlTelInput.css">
+      <link rel="stylesheet" type="text/css" href="./css/cafstyle.css" />
+      <title>Application Form | SmartOwner</title>
+</head>
+
+<body>
+  <div class="container-fluid">
+      <section class="header">
+      	<div class="container">
+      		<div class="col-md-2 brand">
+      			<img src="img/brand_bignew.png" class="img-responsive"/>
+      		</div>
+      		<div class="col-md-10 pageHead text-center">
+      			<h1>Application Form</h1>
+      		</div>
+      	</div>
+      </section>
+    </div>
+    <div class="container">
+      <div class="col-md-12">
+      	<div class="form-entry-q text-center" style="height:100px;">
+      		<h3>Have you invested with SmartOwner before?</h3>
+      		<div class="btn-group btn-group-justified btn-group-raised">
+  			  <a href="#yes" onclick="window.location.reload('caf.html');" class="btn switch-btn yes">Yes</a>
+  			  <a href="#no" onclick="window.location.reload('caf.html');" class="btn switch-btn no">No</a> 
+  			 </div>
+        </div>
+    	</div>
+      <div class="col-md-12 progress-status marginBottom20">
+      	<div class="progress">
+            <div class="progress-bar bar"></div>
+        </div>
+      	
+        <div class="col-md-3 table-cell">
+          <div class="milestone">
+            <div class="inner-milestone mile1">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 table-cell">
+          <div class="milestone">
+            <div class="inner-milestone mile2">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 table-cell">
+          <div class="milestone">
+            <div class="inner-milestone mile3">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 table-cell">
+          <div class="milestone">
+            <div class="inner-milestone mile4">
+            </div>
+          </div>
+          <div class="milestone" style="right:0px;">
+            <div class="inner-milestone mile5">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-panels">
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+              <div class="panel panel-default">
+                <div class="panel-heading withripple" role="tab" id="personalDetailsTab">
+                    <h4 class="panel-title" role="button" data-toggle="collapse" data-parent="#accordion" href="#personalDetailsContent" aria-expanded="true" aria-controls="personalDetailsContent">
+                      <a href="javascript:void(0)" class="btn btn-default btn-fab"><i class="material-icons">remove</i></a>&nbsp;&nbsp;&nbsp;PERSONAL DETAILS
+                    </h4>
+                </div>
+                <div id="personalDetailsContent" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="personalDetailsTab">
+                  <div class="panel-body">
+                    <form class="form-horizontal" id="personalDetailsForm">
+                      <div class="row">
+                        <div class="col-md-7">
+                          <div class="form-group">
+                            <label for="panNumber" class="col-md-3 control-label">PAN Card Number</label>
+                            <div class="col-md-9">
+                              <input type="text" class="form-control" id="panNumber" name="panNumber" placeholder="Enter 10 digit PAN number">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="clientName" class="col-md-3 control-label">Applicant Name</label>
+                            <div class="col-md-9">
+                              <input type="text" class="form-control" id="clientName" name="clientName" minlength="2" placeholder="Enter applicant's name">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="emailId" class="col-md-3 control-label">Email ID</label>
+                            <div class="col-md-9">
+                              <input type="email" class="form-control" id="emailId" name="emailId" placeholder="Enter a valid email id">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="phoneNumber" class="col-md-3 control-label">Phone</label>
+                            <div class="col-md-9">
+                              <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Enter a valid phone number">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-5">
+                          <div class="form-group">
+                            <label for="toc" class="col-md-3 control-label">Type of Applicant</label>
+                            <div class="col-md-9">
+                              <div class="form-group" style="margin:0;">
+                                <select id="toc" class="form-control">
+                                  <option value="Individual">Individual</option>
+                                  <option value="Partnership">Partnership</option>
+                                  <option value="Ltd. Company">Limited company</option>
+                                  <option value="LLP">LLP</option>
+                                  <option value="Trust">Trust</option>
+                                  <option value="HUF">HUF</option>
+                                  <option value="Registered Society">Registered society</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          <div class="otherOptions">
+                          </div>
+                          <div class="indivisualOptions">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label for="address" class="col-md-2 control-label">Address</label>
+                            <div class="col-md-10">
+                              <input type="text" class="form-control" id="address" name="address" placeholder="Enter full address">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label for="address" class="col-md-2 control-label"></label>
+                            <div class="col-md-10">
+                              <input type="text" class="form-control" id="locality" placeholder="">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <!--<div class="col-md-7">
+                          <div class="form-group">
+                            <label for="street" class="col-md-3 control-label">Street</label>
+                            <div class="col-md-9">
+                              <input type="text" class="form-control" id="street" name="street" placeholder="Enter street name">
+                            </div>
+                          </div>
+                        </div>-->
+                        <div class="col-md-5">
+                          <div class="form-group">
+                            <label for="city" class="col-md-3 control-label">City</label>
+                            <div class="col-md-9">
+                              <input type="text" class="form-control" id="city" name="city" placeholder="Enter your city">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-7">
+                          <div class="form-group">
+                            <label for="state" class="col-md-3 control-label">State</label>
+                            <div class="col-md-9">
+                              <input type="text" class="form-control" id="state" name="state" placeholder="Enter your state">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-5">
+                          <div class="form-group">
+                            <label for="pinCode" class="col-md-3 control-label">Postal Code</label>
+                            <div class="col-md-9">
+                              <input type="text" class="form-control" id="pinCode" name="pinCode" placeholder="Enter your postal code">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-7">
+                          <div class="form-group">
+                            <label for="country" class="col-md-3 control-label">Country</label>
+                            <div class="col-md-9">
+                              <input type="text" class="form-control" id="country" name="country" placeholder="Enter your country">
+                            </div>
+                          </div>
+                        </div>
+                        
+                      </div>
+                      <div class="row text-right">
+                        <div class="col-md-12">
+                          <a href="javascript:void(0)" class="btn btn-raised btn-primary disabled continue">Continue</a>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="panel panel-default">
+                <div class="panel-heading withripple" role="tab" id="purchaseDetailsTab">
+                    <h4 class="panel-title" class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#purchaseDetailsContent" aria-expanded="false" aria-controls="purchaseDetailsContent">
+                      <a href="javascript:void(0)" class="btn btn-default btn-fab"><i class="material-icons">add</i></a>&nbsp;&nbsp;&nbsp;PURCHASE DETAILS
+                    </h4>
+                </div>
+                <div id="purchaseDetailsContent" class="panel-collapse collapse" role="tabpanel" aria-labelledby="purchaseDetailsTab">
+                  <div class="panel-body">
+                    <form class="form-horizontal" id="purchaseDetailsForm">
+                      <div class="row marginBottom30">
+                        <div class="col-md-7">
+                          <div class="form-group">
+                            <label for="projectCode" class="col-md-3 control-label">Project Code</label>
+                            <div class="col-md-9">
+                              <select id="projectCode" class="form-control">
+                                <option value="BLR-NEA-SRA">BLR-NEA-SRA</option>
+                                <option value="BLR-NNO-RPB">BLR-NNO-RPB</option>
+                                <option value="BLR-NOA-HIL">BLR-NOA-HIL</option>
+                                <option value="BLR-NSC-AVS">BLR-NSC-AVS</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12">
+                        	<div class="col-md-12">
+                        		<div class="col-md-2">
+                        			Unit size (sft)
+                        		</div>
+                        		<div class="col-md-2">
+                        			No. of units
+                        		</div>
+                        		<div class="col-md-2">
+                        			Down payment
+                        		</div>
+                        		<div class="col-md-6 cownerLabels">
+                        			<div class="col-md-12">
+                        				<div class="col-md-4">
+                        					Your share(sft)
+                        				</div>
+                        				<div class="col-md-8">
+                        					PAN of Co-owner if any&nbsp;<i class="material-icons" style="color:#00acc1;font-size:14px;cursor:pointer;" data-trigger="hover" data-toggle="popover"  title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">help</i>
+                        				</div>
+                        				<!--<div class="col-md-4">
+                        					PAN
+                        				</div>-->
+                        			</div>
+                        		</div>
+                        	</div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 unitCardAppend">
+                          <!--unit cards append here-->
+                          <div class="col-md-12 unitCard" id="unitCard1">
+                            <a class="ucCardAddBtn" id="ucCardAddBtn1">Add another unit</a>
+                            <div class="col-md-2">
+                              <div class="form-group">
+                                <select id="unitSize1" name="unitSize1" class="form-control">
+                                  <option value="1200">1200</option>
+                                  <option value="1500">1500</option>
+                                  <option value="2400">2400</option>
+                                  <option value="4000">4000</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="col-md-2">
+                              <div class="form-group">
+                                <input type="number" class="form-control" id="nou1" name="nou1" placeholder="Units" min="1">
+                              </div>
+                            </div>
+                            <div class="col-md-2">
+                              <div class="form-group">
+                                <select id="slider1" name="slider1" class="form-control select">
+                                  <option value="15">15%</option>
+                                  <option value="25">25%</option>
+                                  <option value="50">50%</option>
+                                  <option value="75">75%</option>
+                                  <option value="100">100%</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="col-md-6 coOwnerAppend">
+                              <!--co-owner cards append here-->
+                              <div class="col-md-12 co-ownerCard" id="co-ownerCard1">
+                                <div class="col-md-4">
+                                  <div class="form-group">
+                                    <input type="number" class="form-control" name="yourShare1" id="yourShare1" placeholder="Share value" min="0">
+                                  </div>
+                                </div>
+                                <div class="col-md-8">
+                                  <div class="form-group">
+                                    <input type="text" class="form-control" name="co-ownerPan1" id="co-ownerPan1" placeholder="10 digit PAN separated by comma">
+                                  </div>
+                                </div>
+                                <!--<i class="material-icons coRemoveBtn" class="coRemoveBtn1">clear</i>-->
+                              </div>
+                              <!--<a href="javascript:void(0)" class="coAddBtn btn btn-info" id="coAddBtn1"><i class="material-icons">add_circle_outline</i>&nbsp;Add co-owner</a>-->
+                            </div>
+                            <div class="row">
+                              <div class="col-md-6">
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <div class="checkbox">
+                                      <label>
+                                        <input type="checkbox" name="property-q1" value="resell" checked>I want SmartOwner to resell the property for me.
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-md-6 paddinglr0">
+                                  <div class="form-group">
+                                    <div class="checkbox">
+                                      <label>
+                                        <input type="checkbox" name="property-q1" value="possession">I would like to take possession of the property.
+                                      </label>
+                                      <i class="material-icons" style="color:#00acc1;font-size:14px;cursor:pointer;" data-trigger="hover" data-toggle="popover"  title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">help</i>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="col-md-12">
+                                  <div class="form-group">
+                                    <label for="premiumFeatures1" class="col-md-4 control-label">Premium Features</label>
+                                    <div class="col-md-8">
+                                        <select id="premiumFeatures1" class="form-control selectcheckbox">
+                                          <option value="East">east</option>
+                                          <option value="Corner">Corner</option>
+                                          <option value="East and corner">East and corner</option>
+                                          <option value="75">75%</option>
+                                          <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div class="row">
+                        <div class="col-md-12 featureCardWrapper" style="display:none;">
+                          <!-- featureCard appends here-->
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-5">
+                          <div class="form-group">
+                            <label for="purchasePrice" class="col-md-3 control-label">Purchase Price</label>
+                            <div class="col-md-9">
+                              <input type="text" class="form-control disabled" id="purchasePrice" placeholder="Purchase price">
+                            </div>
+                          </div>
+                        </div>
+                        <!--<div class="col-md-7">
+                            <div class="form-group">
+                            <label for="paymentOpt" class="col-md-3 control-label">Payment Method</label>
+                             <div class="col-md-4" style="margin:12px 0 0 0;">
+                                <div class="radio">
+                                  <label>
+                                    <input type="radio" name="payment" value="cheque" checked="">
+                                    Cheque
+                                  </label>
+                                </div>
+                                <i class="material-icons" style="color:#00acc1;font-size:14px;cursor:pointer;" data-toggle="popover" data-trigger="hover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">help</i>
+                              </div>
+                              <div class="col-md-5" style="margin:12px 0 0 0;">
+                                <div class="radio">
+                                  <label>
+                                    <input type="radio" name="payment" value="online" checked="">
+                                    Online/Electronic transfer
+                                  </label>
+                                </div>
+                              </div> 
+                          </div>
+                          <div class="payment-help help-block col-md-9 col-md-offset-3 hidden">Please write applicant's name and PAN on the back of the cheque</div> 
+                        </div>-->
+                      </div>
+                      <div class="row text-right">
+                        <div class="col-md-12">
+                          <a href="javascript:void(0)" class="btn btn-raised btn-primary disabled marginTop30">Continue</a>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="panel panel-default">
+                <div class="panel-heading withripple" role="tab" id="bankDetailsTab">
+                    <h4 class="panel-title" class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#bankDetailsContent" aria-expanded="false" aria-controls="bankDetailsContent">
+                      <a href="javascript:void(0)" class="btn btn-default btn-fab"><i class="material-icons">add</i></a>&nbsp;&nbsp;&nbsp;BANK DETAILS FOR REPAYMENT/EXIT
+                    </h4>
+                </div>
+                <div id="bankDetailsContent" class="panel-collapse collapse" role="tabpanel" aria-labelledby="bankDetailsTab">
+                  <div class="panel-body">
+                   <form class="form-horizontal" id="bankDetailsForm">
+                      <div class="row nroAcCheckboxWrapper">
+                        <!-- NRO checkbox append here-->
+                      </div>
+                      <div class="row bankAcDetailsWrapper">
+                        <!--Bank Account Details appends here-->
+                      </div>
+                      <div class="row nroAcRadiosWrapper">
+                        <!--NRO AC radios append here-->
+                      </div>
+                      <div class="row text-right">
+                        <div class="col-md-12">
+                          <a href="javascript:void(0)" class="btn btn-raised btn-primary disabled continue">Continue</a>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="panel panel-default">
+                <div class="panel-heading withripple" role="tab" id="nomineeDetailsTab">
+                  <a>
+                    <h4 class="panel-title" class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#nomineeDetailsContent" aria-expanded="false" aria-controls="nomineeDetailsContent">
+                      <a href="javascript:void(0)" class="btn btn-default btn-fab"><i class="material-icons">add</i></a>&nbsp;&nbsp;&nbsp;NOMINEE DETAILS
+                    </h4>
+                  </a>
+                </div>
+                <div id="nomineeDetailsContent" class="panel-collapse collapse" role="tabpanel" aria-labelledby="nomineeDetailsTab">
+                  <div class="panel-body">
+                    <form class="form-horizontal" id="nomineeDetailsForm">
+                      <div class="row savedNomineesList">
+                        <!-- nomineee list appends here-->
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 text-center" style="color:#558b2f;">
+                            ---------- <strong>OR</strong> ----------
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-5" style="padding-left:30px;">
+                          <div class="form-group">
+                            <div class="checkbox">
+                              <label>
+                                <input type="checkbox" name="copyAddress" value="copyAddress"> Address same as applicant
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-7">
+                          <div class="form-group">
+                            <label for="nomineeName" class="col-md-3 control-label">Name of Nominee</label>
+                            <div class="col-md-9">
+                              <input type="text" class="form-control" id="nomineeName" name="nomineeName" placeholder="Enter name of the nominee">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="nomineePhoneNumber" class="col-md-3 control-label">Phone</label>
+                            <div class="col-md-9">
+                              <input type="tel" class="form-control" id="nomineePhoneNumber" name="nomineePhoneNumber" placeholder="Enter a valid phone number">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="nomineeRelationship" class="col-md-3 control-label">Relationship with Applicant</label>
+                            <div class="col-md-9">
+                              <div class="form-group" style="margin:0;">
+                                <select id="nomineeRelationship" class="form-control">
+                                  <option value="sibling">Sibling</option>
+                                  <option value="child">Child</option>
+                                  <option value="grandchild">Grandchild</option>
+                                  <option value="father">Father</option>
+                                  <option value="mother">Mother</option>
+                                  <option value="daughter">Daughter</option>
+                                  <option value="granddaughter">Granddaughter</option>
+                                  <option value="others">Others</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-5">
+                          <div class="form-group">
+                            <label for="nomineeDob" class="col-md-3 control-label">Date of Birth</label>
+                            <div class="col-md-9">
+                              <input type="text" class="form-control" id="nomineeDob" name="nomineeDob" placeholder="Enter date of birth">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="nomineeGender" class="col-md-3 control-label">Gender</label>
+                            <div class="col-md-9">
+                              <div class="form-group" style="margin:20px 0 0 0;">
+                                <div class="radio">
+                                  <label>
+                                    <input type="radio" name="nomineeGender" value="male" checked="">
+                                    Male
+                                  </label>
+                                </div>
+                                <div class="radio">
+                                  <label>
+                                    <input type="radio" name="nomineeGender" value="female">
+                                    Female
+                                  </label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="nomineeEmailId" class="col-md-3 control-label">Email ID</label>
+                            <div class="col-md-9">
+                              <input type="email" class="form-control" id="nomineeEmailId" name="nomineeEmailId" placeholder="Enter a valid email id">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label for="nomineeAddress" class="col-md-2 control-label">Home Address</label>
+                            <div class="col-md-10">
+                              <input type="text" class="form-control" id="nomineeAddress" name="nomineeAddress">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label for="nomineeAddress" class="col-md-2 control-label"></label>
+                            <div class="col-md-10">
+                              <input type="text" class="form-control" id="nomineeLocality">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div class="row">
+                        <div class="col-md-5">
+                          <div class="form-group">
+                            <label for="nomineeCity" class="col-md-3 control-label">City</label>
+                            <div class="col-md-9">
+                              <input type="text" class="form-control" id="nomineeCity" name="nomineeCity" placeholder="Enter city">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-7">
+                          <div class="form-group">
+                            <label for="nomineeState" class="col-md-3 control-label">State</label>
+                            <div class="col-md-9">
+                              <input type="text" id="nomineeState" name="nomineeState" class="form-control" placeholder="Enter state">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-5">
+                          <div class="form-group">
+                            <label for="nomineePinCode" class="col-md-3 control-label">Postal Code</label>
+                            <div class="col-md-9">
+                              <input type="text" class="form-control" id="nomineePinCode" name="nomineePinCode" placeholder="Enter your postal code">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-7">
+                          <div class="form-group">
+                            <label for="nomineeCountry" class="col-md-3 control-label">Country</label>
+                            <div class="col-md-9">
+                            <input type="text" id="nomineeCountry" name="nomineeCountry" class="form-control" placeholder="Enter country">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="minorDetailsWrapper">
+                        <!--Minor Details appends here-->
+                      </div>
+                      <div class="row text-right">
+                        <div class="col-md-12">
+                          <a href="javascript:void(0)" class="btn btn-raised btn-primary disabled continue">Continue</a>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="panel panel-default">
+                <div class="panel-heading withripple" role="tab" id="documentDetailsTab">
+                  <a>
+                    <h4 class="panel-title" class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#documentDetailsContent" aria-expanded="false" aria-controls="documentDetailsContent">
+                      <a href="javascript:void(0)" class="btn btn-default btn-fab"><i class="material-icons">add</i></a>&nbsp;&nbsp;&nbsp;DOCUMENTS TO BE SUBMITTED
+                    </h4>
+                  </a>
+                </div>
+                <div id="documentDetailsContent" class="panel-collapse collapse" role="tabpanel" aria-labelledby="documentDetailsTab">
+                  <div class="panel-body">
+                    <div class="panel panel-default uploadPanel">
+                      <div class="panel-heading"></div>
+                      <div class="panel-body">
+                        <form class="form-horizontal" id="DocumentDetailsForm">
+                        <!--<div class="col-md-6">
+                          <div class="form-group">
+                            <label for="passport-nri" class="col-md-4 control-label">Passport Copy</label>
+                            <div class="col-md-8">
+                              <input type="file" id="passport-nri" multiple="">
+                              <input type="text" readonly="" class="form-control" placeholder="Upload passport copy">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="panCard-nri" class="col-md-4 control-label">PAN Card Copy</label>
+                            <div class="col-md-8">
+                              <input type="file" id="panCard-nri" multiple="">
+                              <input type="text" readonly="" class="form-control" placeholder="Upload PAN card copy">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="nroCheque-nri" class="col-md-4 control-label">NRO Cancelled Cheque Copy</label>
+                            <div class="col-md-8">
+                              <input type="file" id="nroCheque-nri" multiple="">
+                              <input type="text" readonly="" class="form-control" placeholder="Upload NRO cancelled cheque copy">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="addressProof-nri" class="col-md-4 control-label">Current Address Proof</label>
+                            <div class="col-md-8">
+                              <input type="file" id="addressProof-nri" multiple="">
+                              <input type="text" readonly="" class="form-control" placeholder="Upload current address proof copy">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="visa-nri" class="col-md-4 control-label">Indian Visa/PIO/OCI Card</label>
+                            <div class="col-md-8">
+                              <input type="file" id="visa-nri" multiple="">
+                              <input type="text" readonly="" class="form-control" placeholder="Upload Visa/PIO/OCI card copy">
+                            </div>
+                          </div>
+                        </div>-->
+                        </form>
+                      </div>
+                    </div>
+                    <!--<div class="panel panel-default uploadPanel indianResidentsPanel">
+                      <div class="panel-heading">INDIAN RESIDENTS</div>
+                      <div class="panel-body">
+                          <div class="form-group">
+                            <label for="panCard-ir" class="col-md-4 control-label">PAN Card Copy</label>
+                            <div class="col-md-8">
+                              <input type="file" id="panCard-ir" multiple="">
+                              <input type="text" readonly="" class="form-control" placeholder="Upload PAN card copy">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="addressProof-ir" class="col-md-4 control-label">Current Address Proof</label>
+                            <div class="col-md-8">
+                              <input type="file" id="addressProof-ir" multiple="">
+                              <input type="text" readonly="" class="form-control" placeholder="Upload current address proof copy">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="idProof-ir" class="col-md-4 control-label">ID Proof</label>
+                            <div class="col-md-8">
+                              <input type="file" id="idProof-ir" multiple="">
+                              <input type="text" readonly="" class="form-control" placeholder="Upload ID Proof copy">
+                            </div>
+                          </div>
+                      </div>
+                    </div>-->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col-md-12">
+          <a href="javascript:void(0)" class="btn btn-raised save">Save</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <a href="javascript:void(0)" class="btn btn-raised disabled submit">Submit</a>
+        </div>
+      </div>
+    </div>
+    
+    <!--<script type="text/javascript">
+      var autocomplete1,autocomplete2,autocomplete3;
+        var componentForm1 = {
+          street: 'short_name',
+          city: 'long_name',
+          state: 'short_name',
+          country: 'long_name',
+          pinCode: 'short_name'
+        };
+        var componentForm2 = {
+          nomineeStreet: 'short_name',
+          nomineeCity: 'long_name',
+          nomineeState: 'short_name',
+          nomineeCountry: 'long_name',
+          nomineePinCode: 'short_name'
+        };
+        var componentForm3 = {
+          guardianStreet: 'short_name',
+          guardianCity: 'long_name',
+          guardianState: 'short_name',
+          guardianCountry: 'long_name',
+          guardianPinCode: 'short_name'
+        };
+        function initAutocomplete() {
+        // Create the autocomplete object, restricting the search to geographical
+        // location types.
+        autocomplete1 = new google.maps.places.Autocomplete(
+            /** @type {!HTMLInputElement} */(document.getElementById('locality')),
+            {types: ['geocode']});
+        autocomplete2 = new google.maps.places.Autocomplete(
+            /** @type {!HTMLInputElement} */(document.getElementById('nomineeLocality')),
+            {types: ['geocode']});
+        autocomplete3 = new google.maps.places.Autocomplete(
+            /** @type {!HTMLInputElement} */(document.getElementById('guardianLocality')),
+            {types: ['geocode']});
+        // When the user selects an address from the dropdown, populate the address
+        // fields in the form.
+        autocomplete1.addListener('place_changed', fillInAddress1);
+        autocomplete2.addListener('place_changed', fillInAddress2);
+        autocomplete3.addListener('place_changed', fillInAddress3);
+      }
+
+      function fillInAddress1() {
+        // Get the place details from the autocomplete object.
+        var place = autocomplete1.getPlace();
+
+        for (var component in componentForm1) {
+          document.getElementById(component).value = '';
+          document.getElementById(component).disabled = false;
+        }
+
+        // Get each component of the address from the place details
+        // and fill the corresponding field on the form.
+        for (var i = 0; i < place.address_components.length; i++) {
+          var addressType = place.address_components[i].types[0];
+          if(place.address_components[i].types[0]=='street_number')
+          {
+            
+            var addressType1 = 'street';
+          }
+          else if(place.address_components[i].types[0]=='locality')
+          {
+            
+            var addressType1 = 'city';
+          }
+           else if(place.address_components[i].types[0]=='administrative_area_level_1')
+          {
+            
+            var addressType1 = 'state';
+          }
+          else if(place.address_components[i].types[0]=='country')
+          {
+            
+            var addressType1 = 'country';
+          }
+          else if(place.address_components[i].types[0]=='postal_code')
+          {
+            
+            var addressType1 = 'pinCode';
+          }
+          if (componentForm1[addressType1]) {
+            var val = place.address_components[i][componentForm1[addressType1]];
+            document.getElementById(addressType1).value = val;
+          }
+        }
+      }
+      function fillInAddress2() {
+        // Get the place details from the autocomplete object.
+        var place = autocomplete2.getPlace();
+
+        for (var component in componentForm2) {
+          document.getElementById(component).value = '';
+          document.getElementById(component).disabled = false;
+        }
+
+        // Get each component of the address from the place details
+        // and fill the corresponding field on the form.
+        for (var i = 0; i < place.address_components.length; i++) {
+          var addressType = place.address_components[i].types[0];
+          if(place.address_components[i].types[0]=='street_number')
+          {
+            
+            var addressType1 = 'nomineeStreet';
+          }
+          else if(place.address_components[i].types[0]=='locality')
+          {
+            
+            var addressType1 = 'nomineeCity';
+          }
+           else if(place.address_components[i].types[0]=='administrative_area_level_1')
+          {
+            
+            var addressType1 = 'nomineeState';
+          }
+          else if(place.address_components[i].types[0]=='country')
+          {
+            
+            var addressType1 = 'nomineeCountry';
+          }
+          else if(place.address_components[i].types[0]=='postal_code')
+          {
+            
+            var addressType1 = 'nomineePinCode';
+          }
+          if (componentForm2[addressType1]) {
+            var val = place.address_components[i][componentForm2[addressType1]];
+            document.getElementById(addressType1).value = val;
+          }
+        }
+      }
+      function fillInAddress3() {
+        // Get the place details from the autocomplete object.
+        var place = autocomplete3.getPlace();
+
+        for (var component in componentForm3) {
+          document.getElementById(component).value = '';
+          document.getElementById(component).disabled = false;
+        }
+
+        // Get each component of the address from the place details
+        // and fill the corresponding field on the form.
+        for (var i = 0; i < place.address_components.length; i++) {
+          var addressType = place.address_components[i].types[0];
+          if(place.address_components[i].types[0]=='street_number')
+          {
+            
+            var addressType1 = 'guardianStreet';
+          }
+          else if(place.address_components[i].types[0]=='locality')
+          {
+            
+            var addressType1 = 'guardianCity';
+          }
+           else if(place.address_components[i].types[0]=='administrative_area_level_1')
+          {
+            
+            var addressType1 = 'guardianState';
+          }
+          else if(place.address_components[i].types[0]=='country')
+          {
+            
+            var addressType1 = 'guardianCountry';
+          }
+          else if(place.address_components[i].types[0]=='postal_code')
+          {
+            
+            var addressType1 = 'guardianPinCode';
+          }
+          if (componentForm3[addressType1]) {
+            var val = place.address_components[i][componentForm3[addressType1]];
+            document.getElementById(addressType1).value = val;
+          }
+        }
+      }
+      function geolocate() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var geolocation = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            var circle = new google.maps.Circle({
+              center: geolocation,
+              radius: position.coords.accuracy
+            });
+            autocomplete1.setBounds(circle.getBounds());
+            autocomplete2.setBounds(circle.getBounds());
+            autocomplete3.setBounds(circle.getBounds());
+          });
+        }
+      }
+    </script>-->
+    <script src="./js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="./js/caf.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBA_pcsxdd4jjeOUTqMKfQOC5uKVQxtLDs&libraries=places&callback=initAutocomplete" async defer></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/material.min.js"></script>
+    <script src="./js/moment-with-locales.min.js"></script>
+    <script src="./js/anypicker.js"></script>
+    <script src="./js/ripples.min.js"></script>
+    
+    <script src="./js/jquery.dropdown.js"></script>
+    <script src="./js/snackbar.min.js"></script>
+    <script src="./js/ion.rangeSlider.min.js"></script>
+    <script src="./js/dropzone.min.js"></script>
+    <script src="./js/intlTelInput.min.js"></script>
+    <script src="./js/jquery.validate.min.js"></script>
+    <script src="./js/additional-methods.min.js"></script>
+    <script type="text/javascript" src="./js/jquery.uploadPreview.min.js"></script>
+</body>
+
+</html>
